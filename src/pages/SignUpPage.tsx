@@ -1,48 +1,48 @@
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
 
-const SignInpage = () => {
-  const [signInData, onChangeSignInData] = useInputs({
+const SignUpPage = () => {
+  const [signUpdata, onChangeSignUpData] = useInputs({
     email: '',
     password: '',
   });
 
-  const [emailStatus, passwordStatus] = useValidation(signInData);
+  const [emailStatus, passwordStatus] = useValidation(signUpdata);
 
   return (
     <div>
-      <h1>SignIn</h1>
+      <h1>SignUp</h1>
       <form>
         <input
           type="text"
           placeholder="이메일을 입력해주세요"
           name="email"
-          value={signInData.email}
-          onChange={onChangeSignInData}
+          value={signUpdata.email}
+          onChange={onChangeSignUpData}
           data-testid="email-input"
         />
-
+        {emailStatus && <div className="text-muted">{emailStatus.log}</div>}
         <input
           type="password"
           placeholder="패스워드를 입력해주세요"
-          autoComplete="off"
           name="password"
-          value={signInData.password}
-          onChange={onChangeSignInData}
+          autoComplete="off"
+          value={signUpdata.password}
+          onChange={onChangeSignUpData}
           data-testid="password-input"
         />
         {passwordStatus && <div>{passwordStatus.log}</div>}
 
         <button
           type="submit"
-          data-testid="signin-button"
+          data-testid="signup-button"
           disabled={emailStatus.isError || passwordStatus.isError}
         >
-          로그인
+          회원가입
         </button>
       </form>
     </div>
   );
 };
 
-export default SignInpage;
+export default SignUpPage;
