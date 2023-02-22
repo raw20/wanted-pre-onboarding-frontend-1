@@ -14,17 +14,20 @@ const assignedRouter = Object.keys(routerMeta).map((componentKey: string) => {
 
 const Router = () => (
   <Routes>
-    {assignedRouter.map(({ Component, props }) => (
-      <Route
-        key={props.path}
-        path={props.path}
-        element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <Component />
-          </Suspense>
-        }
-      />
-    ))}
+    {assignedRouter.map(({ Component, props }: any) => {
+      console.log(props);
+      return (
+        <Route
+          key={props.path}
+          path={props.path}
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Component />
+            </Suspense>
+          }
+        />
+      );
+    })}
   </Routes>
 );
 
