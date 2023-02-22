@@ -1,9 +1,12 @@
 import { postSignIn } from '@/api/auth';
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import token from '@/lib/token';
 import { ACCESS_TOKEN_KEY } from '@/constants/token.contant';
+import { useContext } from 'react';
+import { UserContext } from '@/contexts/UserContextProvider';
+import routerMeta from '@/lib/routerMeta';
 
 const SignInpage = () => {
   const navigate = useNavigate();
@@ -11,7 +14,7 @@ const SignInpage = () => {
     email: '',
     password: '',
   });
-
+  const { isLogin, setIsLogin } = useContext(UserContext);
   const [emailStatus, passwordStatus] = useValidation(signInData);
 
   const onSignIn = (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,13 +22,15 @@ const SignInpage = () => {
     postSignIn(signInData)
       .then((res) => {
         token.setToken(ACCESS_TOKEN_KEY, res.data.access_token);
+        setIsLogin(!!token.getToken(ACCESS_TOKEN_KEY));
         navigate('/todo');
-        window.location.reload();
       })
       .catch((err) => {
         alert(err.response.data.log || err.log);
       });
   };
+
+  if (isLogin) return <Navigate to={routerMeta.TodoPage.path} />;
 
   return (
     <div>

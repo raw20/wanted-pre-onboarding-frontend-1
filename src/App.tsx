@@ -1,10 +1,13 @@
 import React from 'react';
 import Router from './Router';
+import UserContextProvider from '@/contexts/UserContextProvider';
 
 const App = () => {
   return (
     <div className="App">
-      <Router />
+      <UserContextProvider>
+        <Router />
+      </UserContextProvider>
     </div>
   );
 };
