@@ -7,40 +7,17 @@ interface ISignForm {
 }
 
 const useValidation = (target: ISignForm) => {
-  const [emailStatus, setEmailStatus] = useState({
-    log: '',
-    isError: true,
-  });
-
-  const [passwordStatus, setPasswordStatus] = useState({
-    log: '',
-    isError: true,
-  });
+  const [emailStatus, setEmailStatus] = useState('');
+  const [passwordStatus, setPasswordStatus] = useState('');
 
   useEffect(() => {
-    if (isValidEmail(target.email)) {
-      setEmailStatus({
-        log: '',
-        isError: false,
-      });
-    } else {
-      setEmailStatus({
-        log: '이메일에는 @가 포함되어야 합니다.',
-        isError: true,
-      });
-    }
+    isValidEmail(target.email)
+      ? setEmailStatus('')
+      : setEmailStatus('이메일에는 @가 포함되어야 합니다.');
 
-    if (isValidPassword(target.password)) {
-      setPasswordStatus({
-        log: '',
-        isError: false,
-      });
-    } else {
-      setPasswordStatus({
-        log: '패스워드는 8자 이상이어야 합니다.',
-        isError: true,
-      });
-    }
+    isValidPassword(target.password)
+      ? setPasswordStatus('')
+      : setPasswordStatus('패스워드는 8자 이상이어야 합니다.');
   }, [target]);
 
   return [emailStatus, passwordStatus];

@@ -1,5 +1,5 @@
 import routerMeta from './lib/routerMeta';
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 const lazyImport = (pageName: string) =>

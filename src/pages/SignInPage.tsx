@@ -44,6 +44,7 @@ const SignInpage = () => {
           onChange={onChangeSignInData}
           data-testid="email-input"
         />
+        {emailStatus && <div>{emailStatus}</div>}
 
         <input
           type="password"
@@ -54,12 +55,12 @@ const SignInpage = () => {
           onChange={onChangeSignInData}
           data-testid="password-input"
         />
-        {passwordStatus && <div>{passwordStatus.log}</div>}
+        {passwordStatus && <div>{passwordStatus}</div>}
 
         <button
           type="submit"
           data-testid="signin-button"
-          disabled={emailStatus.isError || passwordStatus.isError}
+          disabled={!!(emailStatus || passwordStatus)}
         >
           로그인
         </button>

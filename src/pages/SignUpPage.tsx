@@ -42,7 +42,7 @@ const SignUpPage = () => {
           onChange={onChangeSignUpData}
           data-testid="email-input"
         />
-        {emailStatus && <div className="text-muted">{emailStatus.log}</div>}
+        {emailStatus && <div>{emailStatus}</div>}
         <input
           type="password"
           placeholder="패스워드를 입력해주세요"
@@ -52,12 +52,12 @@ const SignUpPage = () => {
           onChange={onChangeSignUpData}
           data-testid="password-input"
         />
-        {passwordStatus && <div>{passwordStatus.log}</div>}
+        {passwordStatus && <div>{passwordStatus}</div>}
 
         <button
           type="submit"
           data-testid="signup-button"
-          disabled={emailStatus.isError || passwordStatus.isError}
+          disabled={!!(emailStatus || passwordStatus)}
         >
           회원가입
         </button>
