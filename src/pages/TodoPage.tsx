@@ -5,7 +5,6 @@ import { Navigate } from 'react-router-dom';
 
 const TodoPage = () => {
   const { isLogin } = useContext(UserContext);
-  console.log(isLogin);
 
   if (!isLogin) return <Navigate to={routerMeta.SignInPage.path} />;
 
