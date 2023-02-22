@@ -1,7 +1,10 @@
+import { postSignUp } from '@/api/auth';
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [signUpdata, onChangeSignUpData] = useInputs({
     email: '',
     password: '',
@@ -9,10 +12,22 @@ const SignUpPage = () => {
 
   const [emailStatus, passwordStatus] = useValidation(signUpdata);
 
+  const onSignUp = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    postSignUp(signUpdata)
+      .then((res) => {
+        alert(res.statusText);
+        navigate('/signin');
+      })
+      .catch((err) => {
+        alert(err.response.data.log || err.log);
+      });
+  };
+
   return (
     <div>
       <h1>SignUp</h1>
-      <form>
+      <form onSubmit={onSignUp}>
         <input
           type="text"
           placeholder="이메일을 입력해주세요"
