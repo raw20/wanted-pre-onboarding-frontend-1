@@ -1,15 +1,15 @@
+import { baseURL } from '@/constants/baseURL';
 import axios, { AxiosError } from 'axios';
 import { Dispatch, SetStateAction } from 'react';
 
 const signUpController = (
   email: string,
   password: string,
-  api: string,
   setFeedbackMessage: Dispatch<SetStateAction<string>>,
 ) => {
   axios
     .post(
-      `${api}/auth/signup`,
+      `${baseURL}/auth/signup`,
       {
         email: email,
         password: password,

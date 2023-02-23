@@ -1,6 +1,7 @@
+import signUpController from '@/api/auth/signUpController';
 import useConfirm from '@/lib/hooks/useConfirm';
 import { emailRegex } from '@/lib/utils/regex';
-import React, { FormEvent, ChangeEvent, useState } from 'react';
+import { FormEvent, ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUpInput = () => {
@@ -18,6 +19,7 @@ const SignUpInput = () => {
 
   const siginUpSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    signUpController(email, password, setFeedbackMessage);
   };
   const getEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -62,7 +64,7 @@ const SignUpInput = () => {
               onChange={getPasswordConfirm}
             />
           </div>
-
+          <p>{feedbackMessage}</p>
           <button
             disabled={
               isEmailConfirm &&
