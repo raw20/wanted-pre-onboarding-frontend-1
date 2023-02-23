@@ -1,9 +1,11 @@
 import { postSignUp } from '@/api/auth';
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
+  const [isProcessing, setIsProcessing] = useState(false);
   const navigate = useNavigate();
   const [signUpdata, onChangeSignUpData] = useInputs({
     email: '',
@@ -14,14 +16,19 @@ const SignUpPage = () => {
 
   const onSignUp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    postSignUp(signUpdata)
-      .then((res) => {
-        alert(res.statusText);
-        navigate('/signin');
-      })
-      .catch((err) => {
-        alert(err.response.data.log || err.log);
-      });
+    if (!isProcessing) {
+      setIsProcessing(true);
+
+      postSignUp(signUpdata)
+        .then((res) => {
+          alert(res.statusText);
+          setIsProcessing(false);
+          navigate('/signin');
+        })
+        .catch((err) => {
+          alert(err.response.data.log || err.log);
+        });
+    }
   };
 
   return (
@@ -51,7 +58,7 @@ const SignUpPage = () => {
         <button
           type="submit"
           data-testid="signup-button"
-          disabled={!!(emailStatus || passwordStatus)}
+          disabled={!!(emailStatus || passwordStatus) || isProcessing}
         >
           회원가입
         </button>

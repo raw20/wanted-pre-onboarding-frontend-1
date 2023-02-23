@@ -4,11 +4,12 @@ import useValidation from '@/lib/hooks/useValidation';
 import { useNavigate } from 'react-router-dom';
 import token from '@/lib/token';
 import { ACCESS_TOKEN_KEY } from '@/constants/token.contant';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '@/contexts/UserContextProvider';
 
 const SignInpage = () => {
   const navigate = useNavigate();
+  const [isProcessing, setIsProcessing] = useState(false);
   const [signInData, onChangeSignInData] = useInputs({
     email: '',
     password: '',
@@ -18,15 +19,20 @@ const SignInpage = () => {
 
   const onSignIn = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    postSignIn(signInData)
-      .then((res) => {
-        token.setToken(ACCESS_TOKEN_KEY, res.data.access_token);
-        setIsLogin(!!token.getToken(ACCESS_TOKEN_KEY));
-        navigate('/todo');
-      })
-      .catch((err) => {
-        alert(err.response.data.log || err.log);
-      });
+    if (!isProcessing) {
+      setIsProcessing(true);
+
+      postSignIn(signInData)
+        .then((res) => {
+          token.setToken(ACCESS_TOKEN_KEY, res.data.access_token);
+          setIsLogin(!!token.getToken(ACCESS_TOKEN_KEY));
+          setIsProcessing(false);
+          navigate('/todo');
+        })
+        .catch((err) => {
+          alert(err.response.data.log || err.log);
+        });
+    }
   };
 
   return (
@@ -57,7 +63,7 @@ const SignInpage = () => {
         <button
           type="submit"
           data-testid="signin-button"
-          disabled={!!(emailStatus || passwordStatus)}
+          disabled={!!(emailStatus || passwordStatus) || isProcessing}
         >
           로그인
         </button>
