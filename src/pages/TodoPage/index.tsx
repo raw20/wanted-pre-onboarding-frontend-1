@@ -29,7 +29,14 @@ const TodoPage = () => {
       <TodoForm submitFn={onSubmit} />
       <ul>
         {todos.map((todo) => {
-          return <TodoItem getTodos={getTodos} key={todo.id} todo={todo} />;
+          return (
+            <TodoItem
+              submitFn={onSubmit}
+              getTodos={getTodos}
+              key={todo.id}
+              todo={todo}
+            />
+          );
         })}
       </ul>
     </div>

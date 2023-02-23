@@ -12,6 +12,11 @@ export interface ITodoForm {
 }
 
 export interface ITodoItem {
+  submitFn: (todo: createTodoType) => void;
   getTodos: () => void;
   todo: ITodo;
+}
+
+export interface ITodoModify extends ITodoItem {
+  setIsUpdated: React.Dispatch<React.SetStateAction<boolean>>;
 }

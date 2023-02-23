@@ -1,17 +1,51 @@
-import React from 'react';
+import { updateTodo } from '@/api/todo';
+import useInputs from '@/lib/hooks/useInputs';
+import { ITodoModify } from '@/pages/TodoPage/types';
+import React, { FormEvent } from 'react';
 
-const TodoModify = () => {
-  const onUpdate = (todos) => {
-    updateTodo(todos, isComplete)
+const TodoModify = ({
+  todo,
+  getTodos,
+  setIsUpdated,
+  submitFn,
+}: ITodoModify) => {
+  const [newTodoData, onChangeTodoData] = useInputs({ todo: '' });
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    submitFn(newTodoData.todo);
+  };
+
+  const onUpdate = () => {
+    setIsUpdated(false);
+    updateTodo({
+      id: todo.id,
+      todo: newTodoData.todo,
+      isCompleted: todo.isCompleted,
+    })
       .then(() => getTodos())
       .catch((err) => alert(err.response.data.log || err.log));
-    console.log(todo);
   };
+
   return (
     <div>
-      <input data-testid="modify-input" />
-      <button data-testid="submit-button">제출</button>
-      <button data-testid="cancel-button">취소</button>
+      <form onSubmit={handleSubmit}>
+        <input
+          id="todo"
+          name="todo"
+          type="text"
+          value={newTodoData.todo}
+          placeholder={todo.todo}
+          data-testid="modify-input"
+          onChange={onChangeTodoData}
+        />
+        <button onClick={onUpdate} data-testid="submit-button">
+          제출
+        </button>
+        <button data-testid="cancel-button" onClick={() => setIsUpdated(false)}>
+          취소
+        </button>
+      </form>
     </div>
   );
 };

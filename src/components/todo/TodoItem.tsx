@@ -1,9 +1,9 @@
 import { deleteTodo, updateTodo } from '@/api/todo';
-import { updateTodoType } from '@/api/todo/types';
 import { ITodoItem } from '@/pages/TodoPage/types';
 import React, { useState } from 'react';
+import TodoModify from './TodoModify';
 
-const TodoItem = ({ todo, getTodos }: ITodoItem) => {
+const TodoItem = ({ submitFn, todo, getTodos }: ITodoItem) => {
   const [isComplete, setIsComplete] = useState(todo.isCompleted);
   const [isUpdated, setIsUpdated] = useState(false);
 
@@ -28,25 +28,38 @@ const TodoItem = ({ todo, getTodos }: ITodoItem) => {
           onChange={() => setIsComplete((curr) => !curr)}
           onClick={() => onCheck(todo.todo, todo.id)}
         />
-        <span
-          style={{
-            textDecoration: todo.isCompleted ? 'line-through' : 'none',
+        {isUpdated ? (
+          <TodoModify
+            todo={todo}
+            getTodos={getTodos}
+            setIsUpdated={setIsUpdated}
+            submitFn={submitFn}
+          />
+        ) : (
+          <span
+            style={{
+              textDecoration: todo.isCompleted ? 'line-through' : 'none',
+            }}
+          >
+            {todo.todo}
+          </span>
+        )}
+      </label>
+      {!isUpdated && (
+        <button
+          data-testid="modify-button"
+          onClick={() => {
+            setIsUpdated(true);
           }}
         >
-          {todo.todo}
-        </span>
-      </label>
-      <button
-        data-testid="modify-button"
-        onClick={() => {
-          setIsUpdated(true);
-        }}
-      >
-        수정
-      </button>
-      <button data-testid="delete-button" onClick={() => onDelete(todo.id)}>
-        삭제
-      </button>
+          수정
+        </button>
+      )}
+      {!isUpdated && (
+        <button data-testid="delete-button" onClick={() => onDelete(todo.id)}>
+          삭제
+        </button>
+      )}
     </li>
   );
 };
