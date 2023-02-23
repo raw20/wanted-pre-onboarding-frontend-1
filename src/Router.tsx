@@ -1,6 +1,7 @@
 import routerMeta from './lib/routerMeta';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from '@/components/HOC/ProtectedRoute';
 
 const lazyImport = (pageName: string) =>
   lazy(() => import(`./pages/${pageName}`));
@@ -19,9 +20,11 @@ const Router = () => (
         key={props.path}
         path={props.path}
         element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <Component />
-          </Suspense>
+          <ProtectedRoute path={props.path}>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Component />
+            </Suspense>
+          </ProtectedRoute>
         }
       />
     ))}

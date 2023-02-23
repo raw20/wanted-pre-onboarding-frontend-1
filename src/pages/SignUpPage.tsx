@@ -1,13 +1,9 @@
 import { postSignUp } from '@/api/auth';
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
-import { useNavigate, Navigate } from 'react-router-dom';
-import { UserContext } from '@/contexts/UserContextProvider';
-import routerMeta from '@/lib/routerMeta';
-import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
-  const { isLogin } = useContext(UserContext);
   const navigate = useNavigate();
   const [signUpdata, onChangeSignUpData] = useInputs({
     email: '',
@@ -27,8 +23,6 @@ const SignUpPage = () => {
         alert(err.response.data.log || err.log);
       });
   };
-
-  if (isLogin) return <Navigate to={routerMeta.TodoPage.path} />;
 
   return (
     <div>
