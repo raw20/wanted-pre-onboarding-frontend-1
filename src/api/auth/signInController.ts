@@ -1,4 +1,5 @@
 import { baseURL } from '@/constants/baseURL';
+import { TOKEN_KEY } from '@/constants/tokenKey';
 import { Token } from '@/lib/common/token';
 import axios, { AxiosError } from 'axios';
 import { Dispatch, SetStateAction } from 'react';
@@ -22,7 +23,7 @@ const signInController = (
     .then((response) => {
       const token = response.data.access_token;
       const jwtToken = new Token();
-      jwtToken.setToken('todos', token);
+      jwtToken.setToken(TOKEN_KEY, token);
       window.location.replace('/todo');
       return response.data.message;
     })
