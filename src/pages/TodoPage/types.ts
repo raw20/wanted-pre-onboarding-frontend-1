@@ -18,5 +18,5 @@ export interface ITodoItem {
 }
 
 export interface ITodoModify extends ITodoItem {
-  setIsUpdated: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsModify: React.Dispatch<React.SetStateAction<boolean>>;
 }

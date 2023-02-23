@@ -3,12 +3,7 @@ import useInputs from '@/lib/hooks/useInputs';
 import { ITodoModify } from '@/pages/TodoPage/types';
 import React, { FormEvent } from 'react';
 
-const TodoModify = ({
-  todo,
-  getTodos,
-  setIsUpdated,
-  submitFn,
-}: ITodoModify) => {
+const TodoModify = ({ todo, getTodos, setIsModify, submitFn }: ITodoModify) => {
   const [newTodoData, onChangeTodoData] = useInputs({ todo: '' });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -17,7 +12,7 @@ const TodoModify = ({
   };
 
   const onUpdate = () => {
-    setIsUpdated(false);
+    setIsModify(false);
     updateTodo({
       id: todo.id,
       todo: newTodoData.todo,
@@ -42,7 +37,7 @@ const TodoModify = ({
         <button onClick={onUpdate} data-testid="submit-button">
           제출
         </button>
-        <button data-testid="cancel-button" onClick={() => setIsUpdated(false)}>
+        <button data-testid="cancel-button" onClick={() => setIsModify(false)}>
           취소
         </button>
       </form>

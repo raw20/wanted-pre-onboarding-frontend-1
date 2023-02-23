@@ -5,7 +5,7 @@ import TodoModify from './TodoModify';
 
 const TodoItem = ({ submitFn, todo, getTodos }: ITodoItem) => {
   const [isComplete, setIsComplete] = useState(todo.isCompleted);
-  const [isUpdated, setIsUpdated] = useState(false);
+  const [isModify, setIsModify] = useState(false);
 
   const onDelete = (id: number) => {
     deleteTodo(id)
@@ -28,11 +28,11 @@ const TodoItem = ({ submitFn, todo, getTodos }: ITodoItem) => {
           onChange={() => setIsComplete((curr) => !curr)}
           onClick={() => onCheck(todo.todo, todo.id)}
         />
-        {isUpdated ? (
+        {isModify ? (
           <TodoModify
             todo={todo}
             getTodos={getTodos}
-            setIsUpdated={setIsUpdated}
+            setIsModify={setIsModify}
             submitFn={submitFn}
           />
         ) : (
@@ -45,17 +45,17 @@ const TodoItem = ({ submitFn, todo, getTodos }: ITodoItem) => {
           </span>
         )}
       </label>
-      {!isUpdated && (
+      {!isModify && (
         <button
           data-testid="modify-button"
           onClick={() => {
-            setIsUpdated(true);
+            setIsModify(true);
           }}
         >
           수정
         </button>
       )}
-      {!isUpdated && (
+      {!isModify && (
         <button data-testid="delete-button" onClick={() => onDelete(todo.id)}>
           삭제
         </button>
