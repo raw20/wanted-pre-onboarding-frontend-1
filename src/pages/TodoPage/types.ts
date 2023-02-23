@@ -10,3 +10,8 @@ export interface ITodo {
 export interface ITodoForm {
   submitFn: (todo: createTodoType) => void;
 }
+
+export interface ITodoItem {
+  getTodos: () => void;
+  todo: ITodo;
+}

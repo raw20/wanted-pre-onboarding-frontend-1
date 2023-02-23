@@ -18,7 +18,7 @@ const logOnDev = (
   log?: AxiosResponse | InternalAxiosRequestConfig | AxiosError,
 ) => {
   if (process.env.NODE_ENV === 'development') {
-    console.log(message, log);
+    return { message, log };
   }
 };
 
