@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import SignUpInput from '@/components/Input/SignUpInput';
-import React from 'react';
-
-const SignUpPage = () => {
-  return (
-    <div>
-      <h1>회원가입</h1>
-      <SignUpInput />
-=======
 import { postSignUp } from '@/api/auth';
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
@@ -73,7 +63,6 @@ const SignUpPage = () => {
           회원가입
         </button>
       </form>
->>>>>>> 72e892fcd487c03c407e1bc3e3b2886075b1bc6f
     </div>
   );
 };

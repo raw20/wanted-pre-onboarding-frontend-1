@@ -11,8 +11,4 @@ module.exports = {
     },
     plugins: [new TsconfigPathsPlugin({ configFile: tsConfigPath })],
   },
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 72e892fcd487c03c407e1bc3e3b2886075b1bc6f

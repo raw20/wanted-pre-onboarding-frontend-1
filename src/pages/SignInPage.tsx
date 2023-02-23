@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import SignInput from '@/components/Input/SignInput';
-import React from 'react';
-
-const SignInPage = () => {
-  const token = window.localStorage.getItem('todos');
-
-  return (
-    <div>
-      <h1>로그인</h1>
-      <SignInput />
-=======
 import { postSignIn } from '@/api/auth';
 import useInputs from '@/lib/hooks/useInputs';
 import useValidation from '@/lib/hooks/useValidation';
@@ -80,13 +68,8 @@ const SignInpage = () => {
           로그인
         </button>
       </form>
->>>>>>> 72e892fcd487c03c407e1bc3e3b2886075b1bc6f
     </div>
   );
 };
 
-<<<<<<< HEAD
-export default SignInPage;
-=======
 export default SignInpage;
->>>>>>> 72e892fcd487c03c407e1bc3e3b2886075b1bc6f
