@@ -1,7 +1,13 @@
+import SignUpInput from '@/components/Input/SignUpInput';
 import React from 'react';
 
 const SignUpPage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>회원가입</h1>
+      <SignUpInput />
+    </div>
+  );
 };
 
 export default SignUpPage;

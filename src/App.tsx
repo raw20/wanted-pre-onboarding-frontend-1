@@ -1,5 +1,11 @@
+import Router from './Router';
+
 const App = () => {
-  return <div>Template</div>;
+  return (
+    <div className="App">
+      <Router />
+    </div>
+  );
 };
 
 export default App;
