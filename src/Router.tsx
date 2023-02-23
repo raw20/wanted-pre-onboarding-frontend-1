@@ -1,7 +1,7 @@
-import HomePage from '@pages/HomePage';
-import SignInPage from '@pages/SigninPage';
-import SignUpPage from '@pages/SignUpPage';
-import TodoPage from '@pages/TodoPage';
+import HomePage from '@/pages/HomePage';
+import SignInPage from '@/pages/SignInPage';
+import SignUpPage from '@/pages/SignUpPage';
+import TodoPage from '@/pages/TodoPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const Router = () => {
