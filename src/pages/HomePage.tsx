@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { TOKEN_KEY } from '@/constants/tokenKey';
 import { Token } from '@/lib/common/token';
 import React, { useEffect } from 'react';
@@ -16,6 +17,13 @@ const HomePage = () => {
     }
   }, []);
   return <></>;
+=======
+import routerMeta from '@/lib/routerMeta';
+import { Navigate } from 'react-router-dom';
+
+const HomePage = () => {
+  return <Navigate to={routerMeta.TodoPage.path} replace={true} />;
+>>>>>>> 72e892fcd487c03c407e1bc3e3b2886075b1bc6f
 };
 
 export default HomePage;
