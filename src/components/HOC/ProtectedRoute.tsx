@@ -2,6 +2,8 @@ import { ACCESS_TOKEN_KEY } from '@/constants/token.contant';
 import routerMeta from '@/lib/routerMeta';
 import token from '@/lib/token';
 import { Navigate } from 'react-router-dom';
+import { UserContext } from '@/contexts/UserContextProvider';
+import { useContext } from 'react';
 
 interface IProtectedRoute {
   children: JSX.Element;
@@ -9,12 +11,14 @@ interface IProtectedRoute {
 }
 
 const ProtectedRoute = ({ children, path }: IProtectedRoute) => {
-  if (!token.getToken(ACCESS_TOKEN_KEY) && path === routerMeta.TodoPage.path) {
+  const { isLogin } = useContext(UserContext);
+
+  if (!isLogin && path === routerMeta.TodoPage.path) {
     return <Navigate to="/signin" />;
   }
 
   if (
-    token.getToken(ACCESS_TOKEN_KEY) &&
+    isLogin &&
     (path === routerMeta.SignUpPage.path || path === routerMeta.SignInPage.path)
   ) {
     return <Navigate to="/todo" />;
