@@ -11,26 +11,31 @@ const TodoItem = ({
   getTodos: () => void;
 }) => {
   const [isUpdate, setIsUpdate] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const onCheckTodo = (selectedTodo: ITodo) => {
+    const { todo, isCompleted, id } = selectedTodo;
+    setIsProcessing(true);
     updateTodo({
-      todo: selectedTodo.todo,
-      isCompleted: !selectedTodo.isCompleted,
-      id: selectedTodo.id,
-    }).then((_) => {
-      getTodos();
-    });
+      todo,
+      isCompleted: !isCompleted,
+      id,
+    })
+      .then((_) => {
+        getTodos();
+      })
+      .catch((err) => {
+        alert(err.response.data.log || err.log);
+      })
+      .finally(() => {
+        setIsProcessing(false);
+      });
   };
 
   return (
     <li>
       {isUpdate ? (
-        <TodoEditor
-          todo={todo}
-          getTodos={getTodos}
-          setIsUpdate={setIsUpdate}
-          onCheckTodo={onCheckTodo}
-        />
+        <TodoEditor todo={todo} getTodos={getTodos} setIsUpdate={setIsUpdate} />
       ) : (
         <>
           <label>
@@ -38,6 +43,7 @@ const TodoItem = ({
               type="checkbox"
               checked={todo.isCompleted}
               onChange={() => onCheckTodo(todo)}
+              disabled={isProcessing}
             />
             <span>{todo.todo}</span>
           </label>
