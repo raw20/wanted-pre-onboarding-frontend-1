@@ -4,3 +4,7 @@ export interface ITodo {
   isCompleted: boolean;
   userId: number;
 }
+
+export interface ITodoForm {
+  submitFn: (todo: string) => void;
+}
