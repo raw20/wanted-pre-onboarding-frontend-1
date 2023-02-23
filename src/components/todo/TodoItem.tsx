@@ -1,4 +1,4 @@
-import { ITodo } from '@/interface/todo';
+import { ITodo } from '@/pages/TodoPage/types';
 import React, { useState } from 'react';
 
 const TodoItem = ({ todo }: { todo: ITodo }) => {

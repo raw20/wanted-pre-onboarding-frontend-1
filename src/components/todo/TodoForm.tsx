@@ -1,4 +1,4 @@
-import { ITodoForm } from '@/interface/todo';
+import { ITodoForm } from '@/pages/TodoPage/types';
 import useInputs from '@/lib/hooks/useInputs';
 import { FormEvent } from 'react';
 
