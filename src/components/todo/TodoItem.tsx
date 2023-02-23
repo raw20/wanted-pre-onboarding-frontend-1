@@ -1,4 +1,4 @@
-import { updateTodo } from '@/api/todo';
+import { deleteTodo, updateTodo } from '@/api/todo';
 import { ITodo } from '@/pages/TodoPage/types';
 import { useState } from 'react';
 import TodoEditor from './TodoEditor';
@@ -21,6 +21,21 @@ const TodoItem = ({
       isCompleted: !isCompleted,
       id,
     })
+      .then((_) => {
+        getTodos();
+      })
+      .catch((err) => {
+        alert(err.response.data.log || err.log);
+      })
+      .finally(() => {
+        setIsProcessing(false);
+      });
+  };
+
+  const onClickDeleteButton = (id: number) => {
+    setIsProcessing(true);
+
+    deleteTodo({ id })
       .then((_) => {
         getTodos();
       })
@@ -55,7 +70,12 @@ const TodoItem = ({
             >
               수정
             </button>
-            <button type="button" data-testid="delete-button">
+            <button
+              type="button"
+              data-testid="delete-button"
+              onClick={() => onClickDeleteButton(todo.id)}
+              disabled={isProcessing}
+            >
               삭제
             </button>
           </div>
