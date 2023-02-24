@@ -29,7 +29,7 @@ const SignInpage = () => {
           navigate('/todo');
         })
         .catch((err) => {
-          alert(err.response.data.log || err.log);
+          alert(err.response.data.message || err.statusText);
         })
         .finally(() => {
           setIsProcessing(false);
