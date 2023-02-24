@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# 원티프 프리온보딩 인턴쉽 1주차 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Deploy]()&nbsp;&nbsp;&nbsp;&nbsp;[기능 구현 목록](/REQUIREMENTS.md)
 
-## Available Scripts
+[원티드 프리온보딩 프론트엔드 인턴쉽](https://www.wanted.co.kr/events/pre_ob_fe_9?utm_source=email&utm_medium=braze_mkt&utm_campaign=learning_pre_ob_fe_9) 1주차 과제입니다. [가이드라인](https://github.com/walking-sunset/selection-task)과 강의 자료 중 과제 피드백을 준수하였습니다.
 
-In the project directory, you can run:
+이 프로젝트는 [CRA + TypeScript 템플릿](https://create-react-app.dev/docs/adding-typescript/)으로 제작되었습니다.
 
-### `npm start`
+## 팀
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 팀원 명단 테이블?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 기능
 
-### `npm test`
+- Authenticate users via JWT (sign in, sign up, logout)
+- Validation sign in, sign up
+- Redirect processing based on login
+- CRUD Todos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 기술 스택
 
-### `npm run build`
+<dl>
+  <dt>React</dt>
+  <dd>사용 이유 기재</dd>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <dt>TypeScript</dt>
+  <dd>사용 이유 기재</dd>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <dt>craco</dt>
+  <dd>webpack 설정을 확장하기 위해 사용하였습니다. Path Alias를 사용합니다.</dd>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <dt>axios</dt>
+  <dd>사용 이유 기재</dd>
 
-### `npm run eject`
+  <dt>Bootstrap</dt>
+  <dd>사용 이유 기재</dd>
+<dl>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm i
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Build
 
-## Learn More
+```
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm start
+```
+
+## Demo
+
+## 과제 진행 방법
+
+[기능 구현 목록](/REQUIREMENTS.md)을 작성 후 아래와 같이 분류하였습니다.
+
+1. Signin / Signup
+2. CR-- todo
+3. --UD todo
+
+분류에 따라 팀원 개개인이 과제를 수행했습니다. 그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다. 투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다. [이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
+
+## Best Practice
+
+**Feb 24, 2023** 　|　[--UD todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/25)
+
+- 선정 이유 투표하신분들이 간단히 적어주시면 될듯합니다
+- 선정 이유 2
+- ...
+
+**Feb 23, 2023** 　|　[CR-- todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11)
+
+- 선정 이유 투표하신분들이 간단히 적어주시면 될듯합니다
+
+**Feb 23, 2023** 　|　[Signin / Signup Best Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/3)
+
+- 선정 이유 투표하신분들이 간단히 적어주시면 될듯합니다
+
+## 트러블 슈팅
+
+**Feb 23, 2023** 　|　[개발 툴 차이에 따른 lint 적용 이슈 해결](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11/commits/d995d1cf6607353e4dc288cf9e832b58bb542147)
+
+**Feb 23, 2023** 　|　[Path Alias 오류 수정](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/1)
+
+## 파일 구조
+
+```
+
+```

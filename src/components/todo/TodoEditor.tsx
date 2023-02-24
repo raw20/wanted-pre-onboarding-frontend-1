@@ -34,10 +34,23 @@ const TodoEditor = ({
   };
 
   return (
-    <form onSubmit={onUpdate}>
-      <label>
-        <input type="checkbox" checked={todo.isCompleted} readOnly />
+    <form
+      onSubmit={onUpdate}
+      className="d-flex justify-content-between align-items-center"
+      style={{ width: '100%' }}
+    >
+      <label
+        className="d-flex gap-3 align-items-center"
+        style={{ width: '80%' }}
+      >
         <input
+          type="checkbox"
+          checked={todo.isCompleted}
+          readOnly
+          className="form-check-input flex-shrink-0"
+        />
+        <input
+          className="form-control"
           data-testid="modify-input"
           name="todo"
           value={todoEdit.todo}
@@ -45,14 +58,23 @@ const TodoEditor = ({
           disabled={isProcessing}
         />
       </label>
-      <div role="group">
-        <button type="submit" data-testid="submit-button">
+      <div
+        className="btn-group"
+        role="group"
+        aria-label="Basic mixed styles example"
+      >
+        <button
+          type="submit"
+          data-testid="submit-button"
+          className="btn btn-outline-dark btn-sm"
+        >
           제출
         </button>
         <button
           type="button"
           data-testid="cancel-button"
           onClick={() => setIsUpdate(false)}
+          className="btn btn-outline-dark btn-sm"
         >
           취소
         </button>

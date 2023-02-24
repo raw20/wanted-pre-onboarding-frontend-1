@@ -18,12 +18,17 @@ const TodoPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container my-5">
+      <h1 className="display-5 fw-bold">Todos</h1>
       <TodoForm getTodos={getTodos} />
-      <ul>
-        {todos.map((todo) => {
-          return <TodoItem key={todo.id} todo={todo} getTodos={getTodos} />;
-        })}
+      <ul className="list-group w-auto">
+        {todos.length === 0 ? (
+          <div>Todos is empty :(</div>
+        ) : (
+          todos.map((todo) => {
+            return <TodoItem key={todo.id} todo={todo} getTodos={getTodos} />;
+          })
+        )}
       </ul>
     </div>
   );

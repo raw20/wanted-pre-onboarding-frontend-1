@@ -34,11 +34,15 @@ const SignUpPage = () => {
   };
 
   return (
-    <div>
-      <h1>SignUp</h1>
-      <form onSubmit={onSignUp}>
+    <div className="container my-5">
+      <h1 className="display-5 fw-bold">SignUp</h1>
+      <form
+        onSubmit={onSignUp}
+        style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
+      >
         <input
           type="text"
+          className="form-control"
           placeholder="이메일을 입력해주세요"
           name="email"
           value={signUpdata.email}
@@ -48,6 +52,7 @@ const SignUpPage = () => {
         {emailStatus && <div>{emailStatus}</div>}
         <input
           type="password"
+          className="form-control"
           placeholder="패스워드를 입력해주세요"
           name="password"
           autoComplete="off"
@@ -59,6 +64,7 @@ const SignUpPage = () => {
 
         <button
           type="submit"
+          className="btn btn-dark"
           data-testid="signup-button"
           disabled={!!(emailStatus || passwordStatus) || isProcessing}
         >

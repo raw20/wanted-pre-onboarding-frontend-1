@@ -49,23 +49,29 @@ const TodoItem = ({
   };
 
   return (
-    <li>
+    <li className="list-group-item d-flex justify-content-between align-items-center">
       {isUpdate ? (
         <TodoEditor todo={todo} getTodos={getTodos} setIsUpdate={setIsUpdate} />
       ) : (
         <>
-          <label>
+          <label className="d-flex gap-3">
             <input
               type="checkbox"
+              className="form-check-input flex-shrink-0"
               checked={todo.isCompleted}
               onChange={() => onCheckTodo(todo)}
               disabled={isProcessing}
             />
-            <span>{todo.todo}</span>
+            <span className="pt-1 form-checked-content">{todo.todo}</span>
           </label>
-          <div role="group">
+          <div
+            role="group"
+            className="btn-group"
+            aria-label="Basic outlined example"
+          >
             <button
               type="button"
+              className="btn btn-outline-dark btn-sm"
               data-testid="modify-button"
               onClick={() => setIsUpdate(true)}
             >
@@ -73,6 +79,7 @@ const TodoItem = ({
             </button>
             <button
               type="button"
+              className="btn btn-outline-dark btn-sm"
               data-testid="delete-button"
               onClick={() => onClickDeleteButton(todo.id)}
               disabled={isProcessing}

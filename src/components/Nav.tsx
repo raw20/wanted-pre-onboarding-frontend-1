@@ -15,18 +15,20 @@ const Nav = () => {
   };
 
   return (
-    <nav>
-      <div>
-        <ul>
+    <nav className="py-2 border-bottom">
+      <div className="container d-flex flex-wrap">
+        <ul className="nav me-auto">
           {Object.keys(routerMeta).map((componentKey: string) => {
             const menu: IRouterMeta = routerMeta[componentKey];
 
             if (menu.isShow)
               return (
-                <li key={menu.path}>
+                <li key={menu.path} className="nav-item">
                   <NavLink
                     to={menu.path}
-                    className={({ isActive }) => `${isActive ? 'active' : ''}`}
+                    className={({ isActive }) =>
+                      `nav-link link-dark px-2 ${isActive ? 'active' : ''}`
+                    }
                   >
                     {menu.name}
                   </NavLink>
@@ -35,7 +37,11 @@ const Nav = () => {
           })}
         </ul>
         {isLogin ? (
-          <button type="button" onClick={onLogout}>
+          <button
+            type="button"
+            onClick={onLogout}
+            className="btn btn-outline-dark me-2"
+          >
             로그아웃
           </button>
         ) : (

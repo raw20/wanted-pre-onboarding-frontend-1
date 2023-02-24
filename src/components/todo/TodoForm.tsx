@@ -24,20 +24,23 @@ const TodoForm = ({ getTodos }: { getTodos: () => void }) => {
   };
 
   return (
-    <form onSubmit={onCreate}>
-      <label htmlFor="todo">
-        할 일 추가하기
-        <input
-          data-testid="new-todo-input"
-          id="todo"
-          name="todo"
-          type="text"
-          value={todoData.todo}
-          onChange={onChangeTodoData}
-          disabled={isProcessing}
-        />
-      </label>
-      <button type="submit" data-testid="new-todo-add-button">
+    <form onSubmit={onCreate} className="input-group mb-3">
+      <input
+        data-testid="new-todo-input"
+        className="form-control"
+        placeholder="할 일 추가하기"
+        id="todo"
+        name="todo"
+        type="text"
+        value={todoData.todo}
+        onChange={onChangeTodoData}
+        disabled={isProcessing}
+      />
+      <button
+        type="submit"
+        data-testid="new-todo-add-button"
+        className="btn btn-dark"
+      >
         추가
       </button>
     </form>
