@@ -137,11 +137,6 @@ npm start
 
 ## 🌟Best Practice Process
 
-과제 기능에 따라 분기를 나눠 팀원 개개인이 과제를 수행했습니다.
-그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다.
-투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다.
-[이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR 메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
-
 **Feb 24, 2023**  　|　[UD— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/25)
 
 - 컴포넌트 단위를 가장 적절하게 나눈 점
