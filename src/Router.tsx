@@ -1,7 +1,8 @@
-import routerMeta from './lib/routerMeta';
+import routerMeta from '@/lib/routerMeta';
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from '@/components/HOC/ProtectedRoute';
+import Loading from './components/Loading';
 
 const lazyImport = (pageName: string) =>
   lazy(() => import(`./pages/${pageName}`));
@@ -21,13 +22,14 @@ const Router = () => (
         path={props.path}
         element={
           <ProtectedRoute path={props.path}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
               <Component />
             </Suspense>
           </ProtectedRoute>
         }
       />
     ))}
+    <Route path="/*" element={<Navigate to="/todo" replace={true} />} />
   </Routes>
 );
 
