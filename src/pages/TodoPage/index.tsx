@@ -10,12 +10,14 @@ const TodoPage = () => {
   const getTodos = useCallback(() => {
     getTodo()
       .then((res) => setTodos(res.data))
-      .catch((err) => alert(err.response.data.log || err.log));
+      .catch((err) => {
+        alert(err.response.data.message || err.statusText);
+      });
   }, []);
 
   useEffect(() => {
     getTodos();
-  }, []);
+  }, [getTodos]);
 
   return (
     <div className="container my-5">
@@ -23,7 +25,7 @@ const TodoPage = () => {
       <TodoForm getTodos={getTodos} />
       <ul className="list-group w-auto">
         {todos.length === 0 ? (
-          <div>Todos is empty :(</div>
+          <div>Todos is empty :</div>
         ) : (
           todos.map((todo) => {
             return <TodoItem key={todo.id} todo={todo} getTodos={getTodos} />;
