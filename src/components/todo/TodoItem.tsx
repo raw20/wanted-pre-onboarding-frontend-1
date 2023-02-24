@@ -1,19 +1,87 @@
+import { deleteTodo, updateTodo } from '@/api/todo';
 import { ITodo } from '@/pages/TodoPage/types';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import TodoEditor from './TodoEditor';
 
-const TodoItem = ({ todo }: { todo: ITodo }) => {
-  const [isComplete, setIsComplete] = useState(todo.isCompleted);
+const TodoItem = ({
+  todo,
+  getTodos,
+}: {
+  todo: ITodo;
+  getTodos: () => void;
+}) => {
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const onCheckTodo = (selectedTodo: ITodo) => {
+    const { todo, isCompleted, id } = selectedTodo;
+    setIsProcessing(true);
+    updateTodo({
+      todo,
+      isCompleted: !isCompleted,
+      id,
+    })
+      .then((_) => {
+        getTodos();
+      })
+      .catch((err) => {
+        alert(err.response.data.log || err.log);
+      })
+      .finally(() => {
+        setIsProcessing(false);
+      });
+  };
+
+  const onClickDeleteButton = (id: number) => {
+    if (!confirm('정말 삭제하시겠습니까?')) return;
+
+    setIsProcessing(true);
+    deleteTodo({ id })
+      .then((_) => {
+        getTodos();
+      })
+      .catch((err) => {
+        alert(err.response.data.log || err.log);
+      })
+      .finally(() => {
+        setIsProcessing(false);
+      });
+  };
 
   return (
     <li>
-      <label>
-        <input
-          type="checkbox"
-          checked={isComplete}
-          onChange={() => setIsComplete((curr) => !curr)}
-        />
-        <span>{todo.todo}</span>
-      </label>
+      {isUpdate ? (
+        <TodoEditor todo={todo} getTodos={getTodos} setIsUpdate={setIsUpdate} />
+      ) : (
+        <>
+          <label>
+            <input
+              type="checkbox"
+              checked={todo.isCompleted}
+              onChange={() => onCheckTodo(todo)}
+              disabled={isProcessing}
+            />
+            <span>{todo.todo}</span>
+          </label>
+          <div role="group">
+            <button
+              type="button"
+              data-testid="modify-button"
+              onClick={() => setIsUpdate(true)}
+            >
+              수정
+            </button>
+            <button
+              type="button"
+              data-testid="delete-button"
+              onClick={() => onClickDeleteButton(todo.id)}
+              disabled={isProcessing}
+            >
+              삭제
+            </button>
+          </div>
+        </>
+      )}
     </li>
   );
 };
