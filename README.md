@@ -1,42 +1,90 @@
 # 원티프 프리온보딩 인턴쉽 1주차 과제
 
-## [Deploy]()&nbsp;&nbsp;&nbsp;&nbsp;[기능 구현 목록](/REQUIREMENTS.md)
-
 [원티드 프리온보딩 프론트엔드 인턴쉽](https://www.wanted.co.kr/events/pre_ob_fe_9?utm_source=email&utm_medium=braze_mkt&utm_campaign=learning_pre_ob_fe_9) 1주차 과제입니다. [가이드라인](https://github.com/walking-sunset/selection-task)과 강의 자료 중 과제 피드백을 준수하였습니다.
 
 이 프로젝트는 [CRA + TypeScript 템플릿](https://create-react-app.dev/docs/adding-typescript/)으로 제작되었습니다.
 
-## 팀
+## 👨‍💻팀원 소개
 
-- 팀원 명단 테이블?
+<table border>
+  <tbody>
+    <tr>
+       <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/67201870?v=4"  alt="김상연님"/><br />
+        <br/>
+        <a href="https://github.com/greyHairChooseLife">
+          <img src="https://img.shields.io/badge/김상연-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+      <td align="center" width="200px">
+        <img width="100%" src='https://avatars.githubusercontent.com/u/90181028?v=4'  alt="박지헌님"/><br />
+        <br/>
+        <a href="https://github.com/jiheon788">
+          <img src="https://img.shields.io/badge/박지헌-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+      <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/106523012?v=4"  alt="복준우님"/><br />
+       <br/>
+        <a href="https://github.com/bokjunwoo">
+          <img src="https://img.shields.io/badge/복준우-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+      <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/48446896?v=4"  alt="양소연님"/><br/>
+                <br/>
+        <a href="https://github.com/Noeyso">
+          <img src="https://img.shields.io/badge/양소연-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+     </tr>
+         <tr>
+      <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/62588402?v=4"  alt="정찬욱님"/><br />
+       <br/>
+        <a href="https://github.com/raw20">
+          <img src="https://img.shields.io/badge/정찬욱-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+      <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/103406196?v=4"  alt="조효림님"/><br/>
+       <br/>
+        <a href="https://github.com/hyorimcho">
+          <img src="https://img.shields.io/badge/조효림-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+      <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/82688516?v=4"  alt="최정훈님"/><br/>
+                <br/>
+        <a href="https://github.com/jhoon9494">
+          <img src="https://img.shields.io/badge/최정훈-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+      <td align="center" width="200px">
+        <img width="100%" src="https://avatars.githubusercontent.com/u/17325845?v=4"  alt="한호수님"/><br/>
+       <br/>
+        <a href="https://github.com/tnghgks">
+          <img src="https://img.shields.io/badge/한호수-000?style=flat-round&logo=GitHub&logoColor=white"/>
+        </a>
+      </td>
+     </tr>
+  </tbody>
+</table>
 
-## 기능
+## 🤝협업 툴
 
-- Authenticate users via JWT (sign in, sign up, logout)
-- Validation sign in, sign up
-- Redirect processing based on login
-- CRUD Todos
+- 디스코드
+- 노션
+- github
 
-## 기술 스택
+## 📝과제 목적
 
-<dl>
-  <dt>React</dt>
-  <dd>사용 이유 기재</dd>
+- best practice 만들어 제출하기
+- 동료 학습 및 협업 체계 만들기
 
-  <dt>TypeScript</dt>
-  <dd>사용 이유 기재</dd>
+## 🔗[배포주소]()
 
-  <dt>craco</dt>
-  <dd>webpack 설정을 확장하기 위해 사용하였습니다. Path Alias를 사용합니다.</dd>
-
-  <dt>axios</dt>
-  <dd>사용 이유 기재</dd>
-
-  <dt>Bootstrap</dt>
-  <dd>사용 이유 기재</dd>
-<dl>
-
-## Getting Started
+## ⚙️설치 및 실행 가이드
 
 #### Install
 
@@ -56,42 +104,82 @@ npm run build
 npm start
 ```
 
-## Demo
+[백엔드 api 링크](https://github.com/walking-sunset/selection-task)
 
-## 과제 진행 방법
+## 🚀기능
+
+- Authenticate users via JWT (sign in, sign up, logout)
+- Validation sign in, sign up
+- Redirect processing based on login
+- CRUD Todos
+
+## ✨기술 스택
+
+- React
+- Typescript
+- axios
+- react-router-dom
+- bootstrap → 효율적인 스타일링을 위해 사용하였습니다.
+- craco → webpack 설정을 확장하기 위해 사용하였습니다. Path Alias를 사용합니다
+
+## ✅과제 진행 방법
 
 [기능 구현 목록](/REQUIREMENTS.md)을 작성 후 아래와 같이 분류하였습니다.
 
-1. Signin / Signup
+1. Sign in / Sign up
 2. CR-- todo
 3. --UD todo
 
 분류에 따라 팀원 개개인이 과제를 수행했습니다. 그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다. 투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다. [이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
 
-## Best Practice
+## 🌟Best Practice Process
 
-**Feb 24, 2023** 　|　[--UD todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/25)
+과제 기능에 따라 분기를 나눠 팀원 개개인이 과제를 수행했습니다.
+그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다.
+투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다.
+[이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR 메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
 
-- 선정 이유 투표하신분들이 간단히 적어주시면 될듯합니다
-- 선정 이유 2
-- ...
+**Feb 24, 2023**  　|　[UD— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/25)
 
-**Feb 23, 2023** 　|　[CR-- todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11)
+- 컴포넌트 단위를 가장 적절하게 나눈 점
 
-- 선정 이유 투표하신분들이 간단히 적어주시면 될듯합니다
+**Feb 23, 2023**  　|　[CR— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11)
 
-**Feb 23, 2023** 　|　[Signin / Signup Best Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/3)
+- 재사용될 타입들을 파일로 분리해서 관리한 점
+- 컴포넌트 단위를 가장 적절하게 나눈 점
 
-- 선정 이유 투표하신분들이 간단히 적어주시면 될듯합니다
+**Feb 23, 2023**  　|　[Signin / Signup Best Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/3)
 
-## 트러블 슈팅
+- routerMeta를 사용하여 router 할당을 자동화 시킨 점
+- axios interceptors를 통해 token 및 에러 처리를 진행한 점
+- React.lazy와 Suspense를 통한 컴포넌트 코드 스플리팅한 점
+- 토론을 거쳐 나온 프로젝트 구조(파일과 컴포넌트)에 가장 가까웠던 점
+- 커스텀 훅을 사용해 간결하게 코드를 정리한 점
 
-**Feb 23, 2023** 　|　[개발 툴 차이에 따른 lint 적용 이슈 해결](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11/commits/d995d1cf6607353e4dc288cf9e832b58bb542147)
+## 🐞이슈 및 버그
 
-**Feb 23, 2023** 　|　[Path Alias 오류 수정](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/1)
+**Feb 23, 2023**  　|　[개발 툴 차이에 따른 lint 적용 이슈 해결](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11/commits/d995d1cf6607353e4dc288cf9e832b58bb542147)
+**Feb 23, 2023**  　|　[Path Alias 오류 수정](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/1)
 
-## 파일 구조
+## 🗂️파일 구조
 
 ```
-
+public
+src
+├── api
+│   ├── auth
+│   └── todo
+├── components
+│   ├── HOC
+│   └── todo
+├── constants
+├── contexts
+├── lib
+│   ├── hooks
+│   └── utils
+└── pages
+    ├── HomePage
+    ├── SignInPage
+    ├── SignUpPage
+    └── TodoPage
 ```
