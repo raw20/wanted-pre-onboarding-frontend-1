@@ -82,7 +82,7 @@
 - best practice 만들어 제출하기
 - 동료 학습 및 협업 체계 만들기
 
-## 🔗[배포주소]()
+## 🔗[배포주소](https://wanted-pre-onboarding-team8-1.netlify.app/signin)
 
 ## ⚙️설치 및 실행 가이드
 
@@ -112,6 +112,9 @@ npm start
 - Validation sign in, sign up
 - Redirect processing based on login
 - CRUD Todos
+
+### DEMO
+![](https://user-images.githubusercontent.com/90181028/218148314-5036b532-a75d-4e87-b0f3-7e542a0ffbca.gif)
 
 ## ✨기술 스택
 
@@ -159,6 +162,7 @@ npm start
 ## 🐞이슈 및 버그
 
 **Feb 23, 2023**  　|　[개발 툴 차이에 따른 lint 적용 이슈 해결](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11/commits/d995d1cf6607353e4dc288cf9e832b58bb542147)
+
 **Feb 23, 2023**  　|　[Path Alias 오류 수정](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/1)
 
 ## 🗂️파일 구조
@@ -166,18 +170,18 @@ npm start
 ```
 public
 src
-├── api
+├── api // 서버 함수
 │   ├── auth
 │   └── todo
-├── components
+├── components // 재사용 컴포넌트
 │   ├── HOC
 │   └── todo
-├── constants
-├── contexts
+├── constants // 상수
+├── contexts // 전역 state
 ├── lib
-│   ├── hooks
-│   └── utils
-└── pages
+│   ├── hooks // 커스텀 훅
+│   └── utils // 유틸 함수
+└── pages // 페이지 컴포넌트
     ├── HomePage
     ├── SignInPage
     ├── SignUpPage
