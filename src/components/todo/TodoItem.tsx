@@ -33,8 +33,9 @@ const TodoItem = ({
   };
 
   const onClickDeleteButton = (id: number) => {
-    setIsProcessing(true);
+    if (!confirm('정말 삭제하시겠습니까?')) return;
 
+    setIsProcessing(true);
     deleteTodo({ id })
       .then((_) => {
         getTodos();
