@@ -29,7 +29,7 @@ const SignInpage = () => {
           navigate('/todo');
         })
         .catch((err) => {
-          alert(err.response.data.log || err.log);
+          alert(err.response.data.message || err.statusText);
         })
         .finally(() => {
           setIsProcessing(false);
@@ -38,11 +38,15 @@ const SignInpage = () => {
   };
 
   return (
-    <div>
-      <h1>SignIn</h1>
-      <form onSubmit={onSignIn}>
+    <div className="container my-5">
+      <h1 className="display-5 fw-bold">SignIn</h1>
+      <form
+        onSubmit={onSignIn}
+        style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
+      >
         <input
           type="text"
+          className="form-control"
           placeholder="이메일을 입력해주세요"
           name="email"
           value={signInData.email}
@@ -53,6 +57,7 @@ const SignInpage = () => {
 
         <input
           type="password"
+          className="form-control"
           placeholder="패스워드를 입력해주세요"
           autoComplete="off"
           name="password"
@@ -64,6 +69,7 @@ const SignInpage = () => {
 
         <button
           type="submit"
+          className="btn btn-dark"
           data-testid="signin-button"
           disabled={!!(emailStatus || passwordStatus) || isProcessing}
         >

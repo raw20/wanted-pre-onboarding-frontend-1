@@ -1,5 +1,4 @@
-import { createTodo, getTodo } from '@/api/todo';
-import { createTodoType } from '@/api/todo/types';
+import { getTodo } from '@/api/todo';
 import TodoForm from '@/components/todo/TodoForm';
 import TodoItem from '@/components/todo/TodoItem';
 import { ITodo } from '@/pages/TodoPage/types';
@@ -11,33 +10,27 @@ const TodoPage = () => {
   const getTodos = useCallback(() => {
     getTodo()
       .then((res) => setTodos(res.data))
-      .catch((err) => alert(err.response.data.log || err.log));
+      .catch((err) => {
+        alert(err.response.data.message || err.statusText);
+      });
   }, []);
-
-  const onSubmit = (todo: createTodoType) => {
-    createTodo(todo)
-      .then(() => getTodos())
-      .catch((err) => alert(err.response.data.log || err.log));
-  };
 
   useEffect(() => {
     getTodos();
   }, [getTodos]);
 
   return (
-    <div>
-      <TodoForm submitFn={onSubmit} />
-      <ul>
-        {todos.map((todo) => {
-          return (
-            <TodoItem
-              submitFn={onSubmit}
-              getTodos={getTodos}
-              key={todo.id}
-              todo={todo}
-            />
-          );
-        })}
+    <div className="container my-5">
+      <h1 className="display-5 fw-bold">Todos</h1>
+      <TodoForm getTodos={getTodos} />
+      <ul className="list-group w-auto">
+        {todos.length === 0 ? (
+          <div>Todos is empty :</div>
+        ) : (
+          todos.map((todo) => {
+            return <TodoItem key={todo.id} todo={todo} getTodos={getTodos} />;
+          })
+        )}
       </ul>
     </div>
   );
